@@ -1,0 +1,73 @@
+<web-app>
+
+     <context-param>
+	    <param-name>driver</param-name>
+	    <param-value>oracle.jdbc.driver.OracleDriver</param-value>
+	  </context-param>
+	  <context-param>
+	    <param-name>url</param-name>
+	    <param-value>jdbc:oracle:thin:@localhost:1521:xe</param-value>
+	  </context-param>
+	  <context-param>
+	    <param-name>dbuser</param-name>
+	    <param-value>system</param-value>
+	  </context-param>
+	   
+	  <context-param>
+	    <param-name>dbpwd</param-name>
+	    <param-value>manager</param-value>
+	  </context-param>
+
+   <servlet>
+      <servlet-name>DB</servlet-name>
+	  <servlet-class>com.nt.servlet.DBServlet</servlet-class>
+	 
+	  <load-on-startup>1</load-on-startup>
+  </servlet>
+  
+   <servlet-mapping>
+        <servlet-name>DB</servlet-name>
+		<url-pattern>/dburl</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+	  <servlet-name>test</servlet-name>
+	  <servlet-class>com.nt.servlet.TestServlet</servlet-class>
+	 
+	    <init-param>
+	   <param-name>dbuser</param-name>
+	   <param-value>raja</param-value>
+	  </init-param>
+	  
+	   <init-param>
+	   <param-name>dbuser</param-name>
+	   <param-value>scott</param-value>
+	  </init-param>
+	</servlet>
+	<servlet-mapping>
+	  <servlet-name>test</servlet-name>
+	  <url-pattern>/test</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+	  <servlet-name>err</servlet-name>
+	  <servlet-class>com.nt.servlet.ErrorServlet</servlet-class>
+	 </servlet>
+	 <servlet-mapping>
+	   <servlet-name>err</servlet-name>
+	   <url-pattern>/errurl</url-pattern>
+	 </servlet-mapping>
+	 
+ 	<servlet>
+	  <servlet-name>header</servlet-name>
+	  <servlet-class>com.nt.servlet.HeaderServlet</servlet-class>
+	 </servlet>
+	 <servlet-mapping>
+	   <servlet-name>header</servlet-name>
+	   <url-pattern>/headerurl</url-pattern>
+	 </servlet-mapping>
+	
+   <welcome-file-list>
+       <welcome-file>input.html</welcome-file>
+	 </welcome-file-list>
+</web-app>
